@@ -1,4 +1,5 @@
 import { v2 as cloudinary } from 'cloudinary';
+import os from 'os';
 import multer from 'multer';
 import dotenv from 'dotenv';
 import { unlink } from 'fs/promises';
@@ -14,7 +15,7 @@ cloudinary.config({
 // Disk storage — saves file locally before Cloudinary upload
 const diskStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, join(process.cwd(), 'uploads'));
+    cb(null, os.tmpdir());
   },
   filename: (req, file, cb) => {
     const ext = extname(file.originalname) || '.jpg';
