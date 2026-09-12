@@ -22,7 +22,7 @@ const orderSchema = new mongoose.Schema({
   },
   paymentMethod: { type: String, enum: ['upi', 'card', 'netbanking', 'cod'], default: 'cod' },
   paymentStatus: { type: String, enum: ['pending', 'paid', 'failed'], default: 'pending' },
-  orderStatus: { type: String, enum: ['placed', 'confirmed', 'shipped', 'delivered', 'cancelled'], default: 'placed' },
+  orderStatus: { type: String, enum: ['placed', 'confirmed', 'shipped', 'delivered', 'cancelled', 'returned'], default: 'placed' },
   subtotal: Number,
   discount: Number,
   shipping: { type: Number, default: 0 },
